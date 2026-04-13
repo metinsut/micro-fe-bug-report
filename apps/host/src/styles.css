@@ -1,0 +1,62 @@
+:root {
+  color: #231815;
+  background:
+    radial-gradient(circle at top right, rgba(255, 140, 102, 0.38), transparent 34%),
+    linear-gradient(180deg, #f7efe5 0%, #f6d9bc 100%);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body,
+#root {
+  min-height: 100vh;
+}
+
+.page-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.panel {
+  width: min(680px, 100%);
+  border-radius: 30px;
+  padding: 36px;
+  background: rgba(255, 252, 246, 0.82);
+  border: 1px solid rgba(35, 24, 21, 0.08);
+  box-shadow: 0 24px 80px rgba(101, 55, 29, 0.18);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #9a4f2f;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+}
+
+h1,
+p {
+  margin-top: 0;
+}
+
+.copy {
+  max-width: 46ch;
+  color: rgba(35, 24, 21, 0.74);
+  line-height: 1.6;
+}
+
+.status {
+  margin: 24px 0 0;
+  color: #7a503c;
+  font-weight: 600;
+}

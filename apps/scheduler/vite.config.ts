@@ -21,31 +21,19 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "host",
+      name: "scheduler",
+      filename: "remoteEntry.js",
       dts: false,
-      remotes: {
-        remote: {
-          type: "module",
-          name: "remote",
-          entry: "http://127.0.0.1:4173/remoteEntry.js",
-          entryGlobalName: "remote",
-          shareScope: "default",
-        },
-        scheduler: {
-          type: "module",
-          name: "scheduler",
-          entry: "http://127.0.0.1:4175/remoteEntry.js",
-          entryGlobalName: "scheduler",
-          shareScope: "default",
-        },
+      exposes: {
+        "./SchedulePanel": "./src/components/SchedulePanel.tsx",
       },
       shared,
     }),
   ],
   server: {
     host: "127.0.0.1",
-    port: 4174,
-    origin: "http://127.0.0.1:4174",
+    port: 4175,
+    origin: "http://127.0.0.1:4175",
   },
   build: {
     target: "chrome89",

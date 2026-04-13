@@ -9,14 +9,16 @@ function read(relativePath: string) {
 }
 
 describe("module federation workspace", () => {
-  test("defines a Bun workspace for host and remote apps", () => {
+  test("defines a Bun workspace for host and both remote apps", () => {
     expect(existsSync(join(rootDir, "package.json"))).toBe(true);
 
     const pkg = JSON.parse(read("package.json"));
 
     expect(pkg.workspaces).toEqual(["apps/*"]);
     expect(pkg.scripts.dev).toContain("concurrently");
+    expect(pkg.scripts.dev).toContain("dev:scheduler");
     expect(pkg.scripts.build).toContain("bun --filter");
+    expect(pkg.scripts.build).toContain("scheduler");
   });
 
   test("configures the remote app to expose HelloCard", () => {
@@ -34,5 +36,17 @@ describe("module federation workspace", () => {
     expect(hostConfig).toContain("name: \"host\"");
     expect(hostConfig).toContain("entry: \"http://127.0.0.1:4173/remoteEntry.js\"");
     expect(hostApp).toContain("React.lazy(() => import(\"remote/HelloCard\"))");
+  });
+
+  test("configures the scheduler remote and host integration", () => {
+    const schedulerConfig = read("apps/scheduler/vite.config.ts");
+    const hostConfig = read("apps/host/vite.config.ts");
+    const hostApp = read("apps/host/src/App.tsx");
+
+    expect(schedulerConfig).toContain("name: \"scheduler\"");
+    expect(schedulerConfig).toContain("port: 4175");
+    expect(schedulerConfig).toContain("\"./SchedulePanel\": \"./src/components/SchedulePanel.tsx\"");
+    expect(hostConfig).toContain("entry: \"http://127.0.0.1:4175/remoteEntry.js\"");
+    expect(hostApp).toContain("React.lazy(() => import(\"scheduler/SchedulePanel\"))");
   });
 });

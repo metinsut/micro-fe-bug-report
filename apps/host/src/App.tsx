@@ -10,10 +10,10 @@ export default function App() {
         <p className="eyebrow">Host application</p>
         <h1>Remote component loader</h1>
         <p className="copy">
-          Asagidaki kart `apps/remote` tarafindan expose edilip runtime&apos;da
-          yukleniyor. Ikinci kart ise `apps/scheduler` icinden geliyor.
+          The first card is exposed by `apps/remote` and loaded at runtime.
+          The second card comes from `apps/scheduler`.
         </p>
-        <Suspense fallback={<p className="status">Remote component yukleniyor...</p>}>
+        <Suspense fallback={<p className="status">Loading remote components...</p>}>
           <div className="remote-grid">
             <RemoteHelloCard />
             <SchedulerPanel />

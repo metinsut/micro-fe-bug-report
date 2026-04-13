@@ -9,7 +9,7 @@ export default function SchedulePanel() {
     <article className="schedule-panel">
       <div className="schedule-panel__header">
         <span className="schedule-panel__badge">scheduler/SchedulePanel</span>
-        <strong>Bugun</strong>
+        <strong>Today</strong>
       </div>
       <ul className="schedule-list">
         {items.map((item) => (

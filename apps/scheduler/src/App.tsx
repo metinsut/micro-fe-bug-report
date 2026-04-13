@@ -7,7 +7,7 @@ export default function App() {
         <p className="eyebrow">Scheduler remote</p>
         <h1>SchedulePanel local preview</h1>
         <p className="copy">
-          Bu uygulama host icin ikinci bir federated bileşen expose eder.
+          This app exposes a second federated component for the host.
         </p>
         <SchedulePanel />
       </section>

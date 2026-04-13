@@ -1,26 +1,26 @@
 # Bun + Vite Module Federation Example
 
-Bu workspace uc uygulama icerir:
+This workspace contains three applications:
 
-- `apps/remote`: `HelloCard` bileşenini expose eder
-- `apps/scheduler`: `SchedulePanel` bileşenini expose eder
-- `apps/host`: `remote/HelloCard` modülünü yükleyip ekrana basar
+- `apps/remote`: exposes the `HelloCard` component
+- `apps/scheduler`: exposes the `SchedulePanel` component
+- `apps/host`: loads and renders `remote/HelloCard` and `scheduler/SchedulePanel`
 
-## Kurulum
+## Install
 
 ```bash
 bun install
 ```
 
-## Geliştirme
+## Development
 
-Tek komutla iki uygulamayı da çalıştır:
+Run all applications with one command:
 
 ```bash
 bun run dev
 ```
 
-Adresler:
+Addresses:
 
 - Host: `http://127.0.0.1:4174`
 - Remote: `http://127.0.0.1:4173`

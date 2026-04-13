@@ -7,7 +7,7 @@ export default function App() {
         <p className="eyebrow">Remote application</p>
         <h1>HelloCard local preview</h1>
         <p className="copy">
-          Bu uygulama host tarafına federated bir React component expose eder.
+          This app exposes a federated React component for the host.
         </p>
         <HelloCard />
       </section>
